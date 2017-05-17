@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -62,7 +63,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 views = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_filme, parent, false);
                 ViewHolder holder;
                 if (views.getTag() == null) {
-                    holder = new ViewHolder(views);
+                    holder = new ViewHolder(views, itemFilme);
                     views.setTag(views);
                 } else {
                     holder = (ViewHolder) views.getTag();
@@ -71,11 +72,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 holder.tvDescricao.setText(itemFilme.getDescricao());
                 holder.tvData.setText(itemFilme.getDataLancamento());
                 holder.ratingPreference.setRating(itemFilme.getAvaliacao());
-                itemClick.onClickRecycleView(itemFilme,position);
                 break;
 
         }
-        return new ViewHolder(views);
+
+        return new ViewHolder(views,itemFilme);
     }
 
 
@@ -94,14 +95,24 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         private ImageView imgItemPoster;
         private TextView tvTitulo, tvDescricao, tvData;
         private RatingBar ratingPreference;
+        private ItemFilme itemFilme;
 
-        ViewHolder(View itemView) {
+        ViewHolder(View itemView,final ItemFilme itemFilme) {
             super(itemView);
+            this.itemFilme =  itemFilme;
             imgItemPoster = (ImageView) itemView.findViewById(R.id.imgItemPoster);
             tvTitulo = (TextView) itemView.findViewById(R.id.tvTitulo);
             tvDescricao = (TextView) itemView.findViewById(R.id.tvDescricao);
             tvData = (TextView) itemView.findViewById(R.id.tvData);
             ratingPreference = (RatingBar) itemView.findViewById(R.id.ratingPreference);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClick.onClickRecycleView(itemFilme,position);
+                }
+            });
+
         }
+
     }
 }
