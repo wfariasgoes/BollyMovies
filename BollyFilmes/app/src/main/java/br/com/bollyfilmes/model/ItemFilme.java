@@ -2,11 +2,13 @@ package br.com.bollyfilmes.model;
 
 import android.net.Uri;
 
+import java.io.Serializable;
+
 /**
  * Created by wesleygoes on 15/03/17.
  */
 
-public class ItemFilme {
+public class ItemFilme implements Serializable{
 
     private String id;
     private String titulo;

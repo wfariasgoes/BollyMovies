@@ -1,6 +1,7 @@
 package br.com.bollyfilmes.view.fragments.listafilmes;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,25 +9,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.bollyfilmes.R;
 import br.com.bollyfilmes.model.ItemFilme;
+import br.com.bollyfilmes.utils.logs.WrapperLog;
 import br.com.bollyfilmes.view.abstracts.AbstractFragment;
+import br.com.bollyfilmes.view.activitys.FilmeDetalheActivity;
 import br.com.bollyfilmes.view.adapter.ListAdapter;
 
-public class FilmesFragment extends AbstractFragment {
+public class FilmesFragment extends AbstractFragment implements IOnClickFilmesFragment {
 //    private ImageView         imgUpDown;
     private RecyclerView      recyclerView;
     private ListAdapter       adapter;
     private List<ItemFilme>   list;
+    private IOnClickFilmesFragment itemClick;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.filme_fragment, container, false);
-
         binds(view);
         return view;
     }
@@ -42,7 +46,7 @@ public class FilmesFragment extends AbstractFragment {
         list.add(new ItemFilme("Homem Cachorro", "Filme de heroi mordido por uma cachorro", "14/02/2016", 3.5f));
         list.add(new ItemFilme("Homem Gato", "Filme de heroi mordido por uma gato", "10/04/2016", 2.5f));
 
-        adapter = new ListAdapter(list);
+        adapter = new ListAdapter(list,this);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rclListaFilmes);
         recyclerView.setHasFixedSize(true);
@@ -50,26 +54,19 @@ public class FilmesFragment extends AbstractFragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
     }
 
 
+    @Override
+    public void onClickRecycleView(ItemFilme itemFilme, int position) {
+//         itemFilme = list.get(position);
 
-    /*
-    * 5926-9
-    * 32 256-3
-    * */
-    private SlidingPaneLayout.PanelSlideListener panelSlideListener = new SlidingPaneLayout.PanelSlideListener() {
-        @Override
-        public void onPanelSlide(View panel, float slideOffset) {
-        }
+        WrapperLog.info("POSITION "+itemFilme.getTitulo());
 
-        @Override
-        public void onPanelOpened(View panel) {
-            hideKeyboard(panel);
-        }
+        Intent intent = new Intent(getActivity(), FilmeDetalheActivity.class);
+        intent.putExtra("KEY_FILME",itemFilme);
+        startActivity(intent);
 
-        @Override
-        public void onPanelClosed(View panel) {
-        }
-    };
+    }
 }

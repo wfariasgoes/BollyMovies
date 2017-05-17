@@ -13,6 +13,7 @@ import java.util.List;
 import br.com.bollyfilmes.R;
 import br.com.bollyfilmes.model.ItemFilme;
 import br.com.bollyfilmes.utils.logs.WrapperLog;
+import br.com.bollyfilmes.view.fragments.listafilmes.IOnClickFilmesFragment;
 
 /**
  * Created by wesleygoes on 10/03/17.
@@ -27,10 +28,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private ViewGroup parent;
     private int position;
     private View views;
+    private IOnClickFilmesFragment itemClick;
 
 
-    public ListAdapter(List<ItemFilme> list) {
+    public ListAdapter(List<ItemFilme> list, IOnClickFilmesFragment itemClick) {
         this.list = list;
+        this.itemClick = itemClick;
     }
 
     @Override
@@ -68,6 +71,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 holder.tvDescricao.setText(itemFilme.getDescricao());
                 holder.tvData.setText(itemFilme.getDataLancamento());
                 holder.ratingPreference.setRating(itemFilme.getAvaliacao());
+                itemClick.onClickRecycleView(itemFilme,position);
                 break;
 
         }
