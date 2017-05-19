@@ -2,7 +2,9 @@ package br.com.bollyfilmes.utils.enums;
 
 
 import br.com.bollyfilmes.view.abstracts.AbstractFragment;
+import br.com.bollyfilmes.view.fragments.dashboard.DashBoadFragment;
 import br.com.bollyfilmes.view.fragments.listafilmes.FilmesFragment;
+import br.com.bollyfilmes.view.fragments.questions.QuestionsFragment;
 import br.com.bollyfilmes.view.fragments.splash.SSplashFragment;
 
 /**
@@ -10,8 +12,10 @@ import br.com.bollyfilmes.view.fragments.splash.SSplashFragment;
  * */
 public enum ControlFrags {
 
-	SPLASH	     			("splash", 		 	SSplashFragment.class),
-	FILMES                  ("filme_fragment", 	FilmesFragment.class);
+	SPLASH	     			("splash"         , SSplashFragment.class),
+	FILMES                  ("filme_fragment" ,	FilmesFragment.class),
+	DASH                    ("dash_board"     ,DashBoadFragment.class),
+	QUESTIONS               ("questions"      ,QuestionsFragment.class);
 
 
 	private String name;

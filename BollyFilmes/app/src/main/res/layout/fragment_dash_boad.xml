@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context="br.com.bollyfilmes.view.fragments.dashboard.DashBoadFragment">
+
+    <LinearLayout
+        android:id="@+id/linText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="23dp"
+            android:text="Olá\n Como posso\nte ajudar?" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="Perguntas Frequentes"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/tbnTechnicalsAssistance"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="Assistência Técnica   "/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,4 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_carga_bateria">Primeira carga de bateria\n
+Seu Planet tab BV-1200 possui internamento uma bateria Lithium de alta performance, que pode ser carregada sem a necessidade de descarregá-la primeiro e que já sai de fábrica com uma carga mínima. Para que você possa conhecer todos os recursos de seu Planet tab BV-1200, recomenda-se uma carga inicial de pelo menos 4 horas, tempo suficiente para que a bateria seja plenamente carregada.
+\nEste procedimento garante que você possa execultar os demais recomendados, sem interrupções. </string>
 </resources>

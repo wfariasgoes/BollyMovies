@@ -26,7 +26,7 @@ public class SSplashFragment extends AbstractFragment implements OnSplashView {
     private ImageView imageLogo;
     Unbinder unbinder;
     private OnSplashPresenter presenter;
-    private transient OnMainActivityView onMainActivityView;
+    private OnMainActivityView onMainActivityView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,7 +74,7 @@ public class SSplashFragment extends AbstractFragment implements OnSplashView {
 
     @Override
     public void showMessage(String message) {
-        onMainActivityView.transferFragment(ControlFrags.FILMES, R.id.content, false);
+        onMainActivityView.transferFragment(ControlFrags.DASH, R.id.content, false);
     }
 
     @Override

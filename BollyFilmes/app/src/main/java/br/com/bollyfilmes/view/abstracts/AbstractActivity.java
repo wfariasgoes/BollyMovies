@@ -13,7 +13,7 @@ import br.com.bollyfilmes.utils.logs.WrapperLog;
  * Created by wesleygoes on 09/03/17.
  */
 
-public class AbstractActivity extends AppCompatActivity {
+public abstract class AbstractActivity extends AppCompatActivity {
 
     protected FragmentManager fragmentManager;
     private AbstractFragment abstractFragment;
